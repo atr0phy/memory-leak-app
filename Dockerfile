@@ -9,4 +9,4 @@ FROM node:alpine
 COPY --from=build-env /opt/src /opt/src
 EXPOSE 3000
 
-CMD ["node", "/opt/src/server.js"]
+ENTRYPOINT ["node", "/opt/src/server.js"]
