@@ -10,6 +10,6 @@
   "author": "atrophyworks",
   "license": "ISC",
   "dependencies": {
-    "restify": "^8.3.0"
+    "restify": "^8.5.1"
   }
 }
