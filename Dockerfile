@@ -1,6 +1,6 @@
 FROM node:alpine AS build-env
 RUN apk update && \
-    apk add make python
+    apk add make python3
 ADD src /opt/src
 RUN cd /opt/src && \
     npm install
