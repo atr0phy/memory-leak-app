@@ -1,12 +1,10 @@
-const restify = require("restify");
+const express = require("express");
 const crypto = require("crypto");
 
-const server = restify.createServer();
+const server = express();
 const leaked = [];
 
-server.use(restify.plugins.queryParser());
-
-server.get("/", (req, res, next) => {
+server.get("/", (req, res) => {
   if (req.query.size) {
     crypto.randomBytes(Number(req.query.size), (err, buff) => {
       leaked.push(buff);
@@ -14,9 +12,8 @@ server.get("/", (req, res, next) => {
   }
 
   res.send(process.memoryUsage());
-  return next();
 });
 
 server.listen(3000, () => {
-  console.log("%s listening at %s", server.name, server.url);
+  console.log("server listening on port 3000");
 });
